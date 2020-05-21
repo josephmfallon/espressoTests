@@ -18,32 +18,21 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MovieDetailFragmentTest{
 
-
     @Test
     fun test_isMovieDataVisible() {
-
-        // SETUP
+        //SETUP
         val movie = THE_RUNDOWN
         val fragmentFactory = MovieFragmentFactory()
         val bundle = Bundle()
         bundle.putInt("movie_id", movie.id)
+
+
         val scenario = launchFragmentInContainer<MovieDetailFragment>(
             fragmentArgs = bundle,
             factory = fragmentFactory
         )
 
-        // VERIFY
         onView(withId(R.id.movie_title)).check(matches(withText(movie.title)))
-
         onView(withId(R.id.movie_description)).check(matches(withText(movie.description)))
     }
 }
-
-
-
-
-
-
-
-
-
